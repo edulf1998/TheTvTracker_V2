@@ -1,10 +1,8 @@
-﻿using System;
-using Avalonia;
-using Avalonia.Controls.ApplicationLifetimes;
+﻿using Avalonia;
 using Avalonia.Logging.Serilog;
 using Avalonia.ReactiveUI;
 
-namespace TheTvTracker_GUI
+namespace TheTvTracker
 {
   class Program
   {

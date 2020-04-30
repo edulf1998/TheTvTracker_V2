@@ -1,10 +1,10 @@
 ﻿using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using TheTvTracker_GUI.ViewModels;
-using TheTvTracker_GUI.Views;
+using TheTvTracker.ViewModels;
+using TheTvTracker.Views;
 
-namespace TheTvTracker_GUI
+namespace TheTvTracker
 {
   public class App : Application
   {

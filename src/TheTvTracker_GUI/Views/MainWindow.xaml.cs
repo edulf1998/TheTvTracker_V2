@@ -2,7 +2,7 @@
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
-namespace TheTvTracker_GUI.Views
+namespace TheTvTracker.Views
 {
   public class MainWindow : Window
   {
@@ -10,7 +10,7 @@ namespace TheTvTracker_GUI.Views
     {
       InitializeComponent();
 #if DEBUG
-            this.AttachDevTools();
+      this.AttachDevTools();
 #endif
     }
 

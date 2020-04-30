@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TheTvTracker_GUI.ViewModels
+﻿namespace TheTvTracker.ViewModels
 {
   public class MainWindowViewModel : ViewModelBase
   {

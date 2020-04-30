@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ReactiveUI;
+﻿using ReactiveUI;
 
-namespace TheTvTracker_GUI.ViewModels
+namespace TheTvTracker.ViewModels
 {
   public class ViewModelBase : ReactiveObject
   {

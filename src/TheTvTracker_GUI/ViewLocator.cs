@@ -1,9 +1,9 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
-using TheTvTracker_GUI.ViewModels;
+using TheTvTracker.ViewModels;
 
-namespace TheTvTracker_GUI
+namespace TheTvTracker
 {
   public class ViewLocator : IDataTemplate
   {
