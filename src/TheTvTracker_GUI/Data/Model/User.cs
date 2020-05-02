@@ -1,4 +1,5 @@
 ﻿using ReactiveUI;
+using System;
 
 namespace TheTvTracker.Data.Model
 {
