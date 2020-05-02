@@ -1,0 +1,13 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="TheTvTracker.Views.LoginScreen">
+
+  <StackPanel Spacing="15" VerticalAlignment="Center">
+    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="48">¿Quién eres? Elige tu perfil</TextBlock>
+    <Image Source="avares://TheTvTracker_GUI/Assets/Avatars/Robot.png" Stretch="Uniform"  MaxWidth="128" />
+  </StackPanel>
+  
+</UserControl>

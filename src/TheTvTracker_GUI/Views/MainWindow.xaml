@@ -1,12 +1,19 @@
 ﻿<Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:rxui="clr-namespace:Avalonia.ReactiveUI;assembly=Avalonia.ReactiveUI"
         xmlns:vm="clr-namespace:TheTvTracker_GUI.ViewModels;assembly=TheTvTracker_GUI"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        WindowStartupLocation="CenterScreen"
+        Width="1024" Height="768"
         x:Class="TheTvTracker.Views.MainWindow"
-        Title="TheTvTracker_GUI">
-  
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-  
+        Title="TheTvTracker_GUI"
+        Background="#141414"
+        >
+  <rxui:RoutedViewHost Router="{Binding Router}">
+    <rxui:RoutedViewHost.DefaultContent>
+      <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48">Navigation failed!</TextBlock>
+    </rxui:RoutedViewHost.DefaultContent>
+  </rxui:RoutedViewHost>
 </Window>

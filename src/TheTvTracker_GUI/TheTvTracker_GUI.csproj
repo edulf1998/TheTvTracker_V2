@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
@@ -12,9 +12,29 @@
       <SubType>Designer</SubType>
     </AvaloniaResource>
   </ItemGroup>
+  
+  <!-- Assets files are included directly in the Assembly -->
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\*" />
+  </ItemGroup>
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\Avatars\*" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <AvaloniaResource Remove="Views\LoginScreen.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Views\LoginScreen.xaml" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="0.9.9" />
     <PackageReference Include="Avalonia.Desktop" Version="0.9.9" />
     <PackageReference Include="Avalonia.ReactiveUI" Version="0.9.9" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\LoginScreen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

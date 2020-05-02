@@ -1,17 +1,17 @@
 ﻿using Avalonia;
-using Avalonia.Controls;
+using Avalonia.Input;
 using Avalonia.Markup.Xaml;
+using Avalonia.ReactiveUI;
+using TheTvTracker.ViewModels;
 
 namespace TheTvTracker.Views
 {
-  public class MainWindow : Window
+  public class MainWindow : ReactiveWindow<MainWindowVM>
   {
     public MainWindow()
     {
       InitializeComponent();
-#if DEBUG
-      this.AttachDevTools();
-#endif
+      this.AttachDevTools(new KeyGesture(Key.F12, KeyModifiers.Control));
     }
 
     private void InitializeComponent()
