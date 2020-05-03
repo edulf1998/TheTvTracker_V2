@@ -8,12 +8,12 @@
         WindowStartupLocation="CenterScreen"
         Width="1024" Height="768"
         x:Class="TheTvTracker.Views.MainWindow"
-        Title="TheTvTracker_GUI"
+        Title="{Binding Title, FallbackValue=TheTvTracker}"
         Background="#141414"
         >
   <rxui:RoutedViewHost Router="{Binding Router}">
     <rxui:RoutedViewHost.DefaultContent>
-      <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48">Navigation failed!</TextBlock>
+      <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48">Oops! Something went wrong!</TextBlock>
     </rxui:RoutedViewHost.DefaultContent>
   </rxui:RoutedViewHost>
 </Window>

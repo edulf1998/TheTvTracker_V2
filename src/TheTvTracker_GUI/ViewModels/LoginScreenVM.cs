@@ -1,7 +1,8 @@
 ﻿using ReactiveUI;
 using System;
 using System.Collections.ObjectModel;
-using System.Threading.Tasks;
+using System.Reactive;
+using System.Reactive.Linq;
 using TheTvTracker.Data.Model;
 
 namespace TheTvTracker.ViewModels
@@ -18,9 +19,10 @@ namespace TheTvTracker.ViewModels
 
     public LoginScreenVM(IScreen screen)
     {
+      (screen as MainWindowVM).Title = "TheTvTracker - Login";
+
       HostScreen = screen;
       Users = new ObservableCollection<User>();
-
       LoadUsers();
     }
 
@@ -37,7 +39,16 @@ namespace TheTvTracker.ViewModels
 
       User u4 = new User() { Username = "Usuario4", Avatar = "avares://TheTvTracker_GUI/Assets/Avatars/Robot.png" };
       Users?.Add(u4);
+    }
 
+    private void UserLogin(User u)
+    {
+      
+    }
+
+    private void AdminProfiles()
+    {
+      
     }
   }
 }
