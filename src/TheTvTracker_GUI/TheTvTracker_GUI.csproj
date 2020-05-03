@@ -23,9 +23,13 @@
   
   <ItemGroup>
     <AvaloniaResource Remove="Views\LoginScreen.xaml" />
+    <AvaloniaResource Remove="Views\SummaryScreen.xaml" />
+    <AvaloniaResource Remove="Views\UserAdminScreen.xaml" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\LoginScreen.xaml" />
+    <None Remove="Views\SummaryScreen.xaml" />
+    <None Remove="Views\UserAdminScreen.xaml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="0.9.9" />
@@ -34,6 +38,16 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\LoginScreen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\SummaryScreen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\UserAdminScreen.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>

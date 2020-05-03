@@ -1,8 +1,6 @@
 ﻿using ReactiveUI;
 using System;
 using System.Collections.ObjectModel;
-using System.Reactive;
-using System.Reactive.Linq;
 using TheTvTracker.Data.Model;
 
 namespace TheTvTracker.ViewModels
@@ -43,12 +41,12 @@ namespace TheTvTracker.ViewModels
 
     private void UserLogin(User u)
     {
-      
+      (HostScreen as MainWindowVM).Navigate(new SummaryScreenVM(HostScreen, u));
     }
 
     private void AdminProfiles()
     {
-      
+      (HostScreen as MainWindowVM).Navigate(new UserAdminScreenVM(HostScreen));
     }
   }
 }

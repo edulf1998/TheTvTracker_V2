@@ -22,5 +22,10 @@ namespace TheTvTracker.ViewModels
     {
       Router.Navigate.Execute(vm);
     }
+
+    public void NavigateBack()
+    {
+      Router?.NavigateBack.Execute();
+    }
   }
 }

@@ -21,6 +21,8 @@ namespace TheTvTracker
     {
       // Register views
       Locator.CurrentMutable.Register(() => new LoginScreen(), typeof(IViewFor<LoginScreenVM>));
+      Locator.CurrentMutable.Register(() => new SummaryScreen(), typeof(IViewFor<SummaryScreenVM>));
+      Locator.CurrentMutable.Register(() => new UserAdminScreen(), typeof(IViewFor<UserAdminScreenVM>));
 
       return AppBuilder.Configure<App>()
            .UsePlatformDetect()
