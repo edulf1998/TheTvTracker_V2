@@ -1,10 +1,12 @@
-﻿using System;
-using Avalonia;
-using Avalonia.Controls.ApplicationLifetimes;
+﻿using Avalonia;
 using Avalonia.Logging.Serilog;
 using Avalonia.ReactiveUI;
+using ReactiveUI;
+using Splat;
+using TheTvTracker.ViewModels;
+using TheTvTracker.Views;
 
-namespace TheTvTracker_GUI
+namespace TheTvTracker
 {
   class Program
   {
@@ -16,9 +18,16 @@ namespace TheTvTracker_GUI
 
     // Avalonia configuration, don't remove; also used by visual designer.
     public static AppBuilder BuildAvaloniaApp()
-        => AppBuilder.Configure<App>()
-            .UsePlatformDetect()
-            .LogToDebug()
-            .UseReactiveUI();
+    {
+      // Register views
+      Locator.CurrentMutable.Register(() => new LoginScreen(), typeof(IViewFor<LoginScreenVM>));
+      Locator.CurrentMutable.Register(() => new SummaryScreen(), typeof(IViewFor<SummaryScreenVM>));
+      Locator.CurrentMutable.Register(() => new UserAdminScreen(), typeof(IViewFor<UserAdminScreenVM>));
+
+      return AppBuilder.Configure<App>()
+           .UsePlatformDetect()
+           .LogToDebug()
+           .UseReactiveUI();
+    }
   }
 }

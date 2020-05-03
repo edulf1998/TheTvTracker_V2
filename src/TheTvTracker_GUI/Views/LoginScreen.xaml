@@ -1,0 +1,80 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="TheTvTracker.Views.LoginScreen"
+             x:Name="Root"
+             >
+
+  <UserControl.Styles>
+    <Style Selector="Button.LoginButton">
+      <Setter Property="Width" Value="250" />
+      <Setter Property="Margin" Value="0, 50, 0, 0" />
+      <Setter Property="Padding" Value="5" />
+      <Setter Property="Foreground" Value="White" />
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="FontSize" Value="16" />
+    </Style>
+
+    <Style Selector="Button.AvatarButton">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="Margin" Value="5" />
+      <Setter Property="Cursor" Value="Hand" />
+      <Setter Property="BorderThickness" Value="0" />
+    </Style>
+
+    <Style Selector="Button.AvatarButton Image">
+      <Setter Property="Stretch" Value="Uniform" />
+      <Setter Property="Width" Value="128" />
+      <Setter Property="MaxHeight" Value="128" />
+      <Setter Property="MaxHeight" Value="128" />
+      <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+
+    <Style Selector="Border.AvatarBorder">
+      <Setter Property="BorderThickness" Value="3" />
+      <Setter Property="BorderBrush" Value="Transparent" />
+    </Style>
+
+    <Style Selector="Border.AvatarBorder:pointerover">
+      <Setter Property="BorderThickness" Value="3" />
+      <Setter Property="BorderBrush" Value="White" />
+    </Style>
+  </UserControl.Styles>
+
+  <StackPanel Spacing="15" VerticalAlignment="Center">
+    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="48" TextWrapping="Wrap">¿Quién eres? Elige tu perfil</TextBlock>
+
+    <!-- Users will appear in this panel! -->
+    <ItemsControl Items="{Binding Users}" HorizontalAlignment="Center">
+      <ItemsControl.ItemsPanel>
+        <ItemsPanelTemplate>
+          <WrapPanel Name="UsersPanel" Orientation="Horizontal" ItemWidth="175" ItemHeight="250"></WrapPanel>
+        </ItemsPanelTemplate>
+      </ItemsControl.ItemsPanel>
+
+      <ItemsControl.ItemTemplate>
+        <DataTemplate>
+          <Button
+            Classes="AvatarButton"
+            Command="{Binding $parent[UserControl].DataContext.UserLogin}"
+            CommandParameter="{Binding .}"
+            >
+
+            <StackPanel Orientation="Vertical" Spacing="15" HorizontalAlignment="Center">
+              <Border Classes="AvatarBorder">
+                <Image
+                  Source="{Binding Avatar, Converter={StaticResource ResourceKey=BMPConverter}}"
+                />
+              </Border>
+              <TextBlock Text="{Binding Username}" Foreground="White" FontSize="20" HorizontalAlignment="Center"/>
+            </StackPanel>
+          </Button>
+        </DataTemplate>
+      </ItemsControl.ItemTemplate>
+    </ItemsControl>
+
+    <Button Classes="LoginButton" Command="{Binding AdminProfiles}"> ADMINISTRAR PERFILES </Button>
+  </StackPanel>
+</UserControl>
