@@ -3,6 +3,8 @@ using Avalonia.Logging.Serilog;
 using Avalonia.ReactiveUI;
 using ReactiveUI;
 using Splat;
+using TheTvTracker.Data.Access;
+using TheTvTracker.Data.Model;
 using TheTvTracker.ViewModels;
 using TheTvTracker.Views;
 
@@ -19,6 +21,16 @@ namespace TheTvTracker
     // Avalonia configuration, don't remove; also used by visual designer.
     public static AppBuilder BuildAvaloniaApp()
     {
+      // Initialize DB
+      using (var c = new DbConnector())
+      {
+        c.Users.Add(new User { Username = "Andy", Avatar = "sss" });
+        c.Users.Add(new User { Username = "Andy2", Avatar = "sss" });
+        c.Users.Add(new User { Username = "Andy3", Avatar = "sss" });
+
+        c.SaveChanges();
+      }
+
       // Register views
       Locator.CurrentMutable.Register(() => new LoginScreen(), typeof(IViewFor<LoginScreenVM>));
       Locator.CurrentMutable.Register(() => new SummaryScreen(), typeof(IViewFor<SummaryScreenVM>));
