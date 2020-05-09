@@ -44,10 +44,20 @@
   </UserControl.Styles>
 
   <StackPanel Spacing="15" VerticalAlignment="Center">
-    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="48" TextWrapping="Wrap">¿Quién eres? Elige tu perfil</TextBlock>
+    <TextBlock Classes="h1" IsVisible="{Binding !!Users.Count}">
+      ¿Quién eres? Elige tu perfil
+    </TextBlock>
+    
+    <TextBlock Classes="h1" IsVisible="{Binding !Users.Count}">
+      ¡Parece que aún no nos conocemos!
+    </TextBlock>
+    
+    <TextBlock Classes="h2" IsVisible="{Binding !Users.Count}">
+      Crea tu perfil haciendo click en el botón
+    </TextBlock>
 
     <!-- Users will appear in this panel! -->
-    <ItemsControl Items="{Binding Users}" HorizontalAlignment="Center">
+    <ItemsControl Items="{Binding Users}" HorizontalAlignment="Center" IsVisible="{Binding !!Users.Count}">
       <ItemsControl.ItemsPanel>
         <ItemsPanelTemplate>
           <WrapPanel Name="UsersPanel" Orientation="Horizontal" ItemWidth="175" ItemHeight="250"></WrapPanel>

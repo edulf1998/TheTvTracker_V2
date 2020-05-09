@@ -20,12 +20,7 @@ namespace TheTvTracker.ViewModels
 
     public void Navigate(IRoutableViewModel vm)
     {
-      Router.Navigate.Execute(vm);
-    }
-
-    public void NavigateBack()
-    {
-      Router?.NavigateBack.Execute();
+      Router.NavigateAndReset.Execute(vm);
     }
   }
 }

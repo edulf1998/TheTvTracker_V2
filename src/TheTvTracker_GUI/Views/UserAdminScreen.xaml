@@ -4,17 +4,29 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="TheTvTracker.Views.UserAdminScreen">
-  <StackPanel Spacing="15">
-    <TextBlock
-  FontSize="72"
-  HorizontalAlignment="Center"
-  VerticalAlignment="Center"
-  Foreground="White"
-  TextWrapping="Wrap"
-    >
-      PANTALLA DE ADMINISTRACION DE USUARIOS
-    </TextBlock>
-    
-    <Button Command="{Binding GoBack}">VOLVER</Button>
+
+  <UserControl.Styles>
+    <Style Selector="Button.FeatureButton">
+      <Setter Property="Width" Value="250" />
+      <Setter Property="Margin" Value="0, 50, 0, 0" />
+      <Setter Property="Padding" Value="5" />
+      <Setter Property="Foreground" Value="White" />
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="FontSize" Value="16" />
+    </Style>
+  </UserControl.Styles>
+
+  <StackPanel Spacing="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <ListBox Items="{Binding Users}" Background="Transparent">
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <StackPanel Orientation="Horizontal">
+            <TextBlock Text="{Binding Username}" Foreground="White" FontSize="16"/>
+          </StackPanel>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+
+    <Button Classes="FeatureButton" Command="{Binding GoBack}">Volver</Button>
   </StackPanel>
 </UserControl>
