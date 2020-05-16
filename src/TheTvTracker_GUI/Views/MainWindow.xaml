@@ -11,9 +11,11 @@
         Title="{Binding Title, FallbackValue=TheTvTracker}"
         Background="#141414"
         >
-  <rxui:RoutedViewHost Router="{Binding Router}">
-    <rxui:RoutedViewHost.DefaultContent>
-      <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Foreground="White">Oops! Something went wrong!</TextBlock>
-    </rxui:RoutedViewHost.DefaultContent>
-  </rxui:RoutedViewHost>
+  <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+    <rxui:RoutedViewHost Router="{Binding Router}">
+      <rxui:RoutedViewHost.DefaultContent>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Foreground="White">Oops! Something went wrong!</TextBlock>
+      </rxui:RoutedViewHost.DefaultContent>
+    </rxui:RoutedViewHost>
+  </ScrollViewer>
 </Window>

@@ -1,16 +1,11 @@
 ﻿using ReactiveUI;
 using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TheTvTracker.Data.Model
 {
-  public class User : ModelBase
+  public class User : BaseModel
   {
     private int _id;
-
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id
     {
       get => _id;
@@ -18,9 +13,6 @@ namespace TheTvTracker.Data.Model
     }
 
     private string _username;
-
-    [Required]
-    [MaxLength(10)]
     public string Username
     {
       get => _username;
@@ -28,8 +20,6 @@ namespace TheTvTracker.Data.Model
     }
 
     private string _avatar;
-
-    [Required]
     public string Avatar
     {
       get => _avatar;
@@ -41,6 +31,27 @@ namespace TheTvTracker.Data.Model
     {
       get => _lastLogin;
       set => this.RaiseAndSetIfChanged(ref _lastLogin, value);
+    }
+
+    private Series _following;
+    public Series Following
+    {
+      get => _following;
+      set => this.RaiseAndSetIfChanged(ref _following, value);
+    }
+
+    private DateTime _created;
+    public DateTime Created
+    {
+      get => _created;
+      set => this.RaiseAndSetIfChanged(ref _created, value);
+    }
+
+    private DateTime _updated;
+    public DateTime Updated
+    {
+      get => _updated;
+      set => this.RaiseAndSetIfChanged(ref _updated, value);
     }
   }
 }

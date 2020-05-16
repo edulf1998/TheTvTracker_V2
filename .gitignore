@@ -520,5 +520,5 @@ MigrationBackup/
 
 # End of https://www.gitignore.io/api/csharp,dotnetcore,visualstudio
 
-# Ignore SQLite Database Explorer
-__SQLiteDatabaseBrowser
+# Ignore LiteDB Studio
+__LiteDBStudio

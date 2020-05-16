@@ -6,7 +6,6 @@
              x:Class="TheTvTracker.Views.LoginScreen"
              x:Name="Root"
              >
-
   <UserControl.Styles>
     <Style Selector="Button.LoginButton">
       <Setter Property="Width" Value="250" />
@@ -42,16 +41,15 @@
       <Setter Property="BorderBrush" Value="White" />
     </Style>
   </UserControl.Styles>
-
   <StackPanel Spacing="15" VerticalAlignment="Center">
     <TextBlock Classes="h1" IsVisible="{Binding !!Users.Count}">
       ¿Quién eres? Elige tu perfil
     </TextBlock>
-    
+
     <TextBlock Classes="h1" IsVisible="{Binding !Users.Count}">
       ¡Parece que aún no nos conocemos!
     </TextBlock>
-    
+
     <TextBlock Classes="h2" IsVisible="{Binding !Users.Count}">
       Crea tu perfil haciendo click en el botón
     </TextBlock>

@@ -2,7 +2,7 @@
 
 namespace TheTvTracker.Data.Model
 {
-  public class ModelBase : ReactiveObject
+  public class BaseModel : ReactiveObject
   {
   }
 }
