@@ -10,6 +10,7 @@
         x:Class="TheTvTracker.Views.MainWindow"
         Title="{Binding Title, FallbackValue=TheTvTracker}"
         Background="#141414"
+        Icon="avares://TheTvTracker_GUI/Assets/AppIcons/TvIcon.png"
         >
   <ScrollViewer HorizontalScrollBarVisibility="Disabled">
     <rxui:RoutedViewHost Router="{Binding Router}">

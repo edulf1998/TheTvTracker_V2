@@ -1,5 +1,6 @@
 ﻿using LiteDB;
 using System;
+using System.Collections.Generic;
 using TheTvTracker.Data.Access;
 using TheTvTracker.Data.Model;
 
@@ -15,6 +16,9 @@ namespace TheTvTracker.Data.Repos
 
     public void Add(User obj)
     {
+      obj.Created = DateTime.Now;
+      obj.LastLogin = DateTime.Now;
+
       GetCollection().Insert(obj);
       RefreshIndexes();
     }
@@ -37,6 +41,11 @@ namespace TheTvTracker.Data.Repos
       return GetCollection().Query().Where(u => u.Username == obj.Username).FirstOrDefault() != null;
     }
 
+    public IList<User> GetAll()
+    {
+      return GetCollection().Query().ToList();
+    }
+
     public ILiteCollection<User> GetCollection()
     {
       return DbHandler.Instance.Db.GetCollection<User>("Users"); 
@@ -51,6 +60,11 @@ namespace TheTvTracker.Data.Repos
     {
       GetCollection().DeleteMany(Query.EQ("Username", obj.Username));
       RefreshIndexes();
+    }
+
+    public void Update(User obj)
+    {
+      GetCollection().Update(obj);
     }
   }
 }

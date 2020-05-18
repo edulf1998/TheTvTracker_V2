@@ -1,7 +1,14 @@
-﻿using ReactiveUI;
+﻿using Avalonia;
+using Avalonia.Controls.ApplicationLifetimes;
+using DynamicData.Binding;
+using ReactiveUI;
 using System;
 using System.Collections.ObjectModel;
+using System.Reactive;
+using System.Reactive.Linq;
 using TheTvTracker.Data.Model;
+using TheTvTracker.Data.Repos;
+using TheTvTracker.Modals;
 
 namespace TheTvTracker.ViewModels
 {
@@ -26,17 +33,38 @@ namespace TheTvTracker.ViewModels
 
     private void LoadUsers()
     {
-      User u1 = new User() { Username = "Usuario1", Avatar = "avares://TheTvTracker_GUI/Assets/Avatars/Smiley.png" };
-      Users?.Add(u1);
+      Users.Clear();
+      var users = UserRepo.Instance.GetAll();
+      foreach (User u in users)
+      {
+        Users.Add(u);
+      }
+    }
 
-      User u2 = new User() { Username = "Usuario2", Avatar = "avares://TheTvTracker_GUI/Assets/Avatars/Sam.png" };
-      Users?.Add(u2);
+    private async void NewUser()
+    {
+      var window = (Application.Current.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime).MainWindow;
+      var modal = new UserModal();
+      modal.ShowInTaskbar = false;
 
-      User u3 = new User() { Username = "Usuario3", Avatar = "avares://TheTvTracker_GUI/Assets/Avatars/Lady.png" };
-      Users?.Add(u3);
+      await modal.ShowDialog(window);
+      LoadUsers();
+    }
 
-      User u4 = new User() { Username = "Usuario4", Avatar = "avares://TheTvTracker_GUI/Assets/Avatars/Robot.png" };
-      Users?.Add(u4);
+    private async void EditUser(User u)
+    {
+      var window = (Application.Current.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime).MainWindow;
+      var modal = new UserModal(u);
+      modal.ShowInTaskbar = false;
+
+      await modal.ShowDialog(window);
+      LoadUsers();
+    }
+
+    private void DeleteUser(User u)
+    {
+      Users.Remove(u);
+      UserRepo.Instance.Remove(u);
     }
 
     private void GoBack()

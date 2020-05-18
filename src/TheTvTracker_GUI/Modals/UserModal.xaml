@@ -1,0 +1,41 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="TheTvTracker.Modals.UserModal"
+        MaxWidth="1024" MaxHeight="768"
+        WindowStartupLocation="CenterScreen"
+        Title="Editar Usuario"
+        Background="#141414"
+        >
+
+  <Window.Styles>
+    <Style Selector="Button.FeatureButton">
+      <Setter Property="Width" Value="250" />
+      <Setter Property="Margin" Value="0, 25, 0, 0" />
+      <Setter Property="Padding" Value="5" />
+      <Setter Property="Foreground" Value="White" />
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="FontSize" Value="16" />
+    </Style>
+  </Window.Styles>
+
+  <Border Padding="15">
+    <StackPanel Orientation="Vertical" Spacing="15" VerticalAlignment="Center" MaxWidth="800">
+      <TextBlock Classes="h1">Editar Usuario</TextBlock>
+      <TextBlock Classes="h2">(Máximo de 12 caracteres, no puede estar vacío)</TextBlock>
+
+      <ComboBox Items="{Binding Avatars}" SelectedItem="{Binding SelectedAvatar}" MaxWidth="150" MaxDropDownHeight="150">
+        <ComboBox.ItemTemplate>
+          <DataTemplate>
+            <Image Stretch="Uniform" Source="{Binding ., Converter={StaticResource ResourceKey=BMPConverter}}" Width="128"/>
+          </DataTemplate>
+        </ComboBox.ItemTemplate>
+      </ComboBox>
+
+      <TextBox Text="{Binding U.Username}" MaxLength="12" MaxWidth="256" FontSize="18" TextAlignment="Center"/>
+      <Button Command="{Binding SaveChanges}" Classes="FeatureButton">HECHO</Button>
+    </StackPanel>
+  </Border>
+</Window>

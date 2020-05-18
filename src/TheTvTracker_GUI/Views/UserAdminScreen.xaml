@@ -8,7 +8,7 @@
   <UserControl.Styles>
     <Style Selector="Button.FeatureButton">
       <Setter Property="Width" Value="250" />
-      <Setter Property="Margin" Value="0, 50, 0, 0" />
+      <Setter Property="Margin" Value="0, 25, 0, 0" />
       <Setter Property="Padding" Value="5" />
       <Setter Property="Foreground" Value="White" />
       <Setter Property="Background" Value="Transparent" />
@@ -16,17 +16,45 @@
     </Style>
   </UserControl.Styles>
 
-  <StackPanel Spacing="15" HorizontalAlignment="Center" VerticalAlignment="Center">
-    <ListBox Items="{Binding Users}" Background="Transparent">
-      <ListBox.ItemTemplate>
-        <DataTemplate>
-          <StackPanel Orientation="Horizontal">
-            <TextBlock Text="{Binding Username}" Foreground="White" FontSize="16"/>
-          </StackPanel>
-        </DataTemplate>
-      </ListBox.ItemTemplate>
-    </ListBox>
+  <StackPanel Spacing="10" VerticalAlignment="Center">
+    <TextBlock Classes="h1">
+      Administración de Usuarios
+    </TextBlock>
+    <ItemsControl Items="{Binding Users}" Margin="64">
+      <ItemsControl.ItemsPanel>
+        <ItemsPanelTemplate>
+          <StackPanel Orientation="Vertical" Spacing="15" />
+        </ItemsPanelTemplate>
+      </ItemsControl.ItemsPanel>
 
-    <Button Classes="FeatureButton" Command="{Binding GoBack}">Volver</Button>
+      <ItemsControl.ItemTemplate>
+        <DataTemplate>
+          <Border BorderBrush="White" BorderThickness="2" Padding="15">
+            <Grid RowDefinitions="*" ColumnDefinitions="64, 128, *, *">
+              <Image
+                  Width="32"
+                  Stretch="Uniform"
+                  Source="{Binding Avatar, Converter={StaticResource ResourceKey=BMPConverter}}"
+              />
+              <TextBlock Text="{Binding Username}" Classes="pnw" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" />
+              <TextBlock Text="{Binding LastLogin, Converter={StaticResource ResourceKey=DTConverter}}" Classes="pnw" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+              <StackPanel Grid.Column="3" Spacing="5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                <Button ToolTip.Tip="Editar" Command="{Binding $parent[UserControl].DataContext.EditUser}" CommandParameter="{Binding .}">
+                  <Image Source="avares://TheTvTracker_GUI/Assets/AppIcons/Pencil.png" Stretch="Uniform" Width="50" />
+                </Button>
+                <Button ToolTip.Tip="Eliminar" Command="{Binding $parent[UserControl].DataContext.DeleteUser}" CommandParameter="{Binding .}">
+                  <Image Source="avares://TheTvTracker_GUI/Assets/AppIcons/Trashcan.png" Stretch="Uniform" Width="50" />
+                </Button>
+              </StackPanel>
+            </Grid>
+          </Border>
+        </DataTemplate>
+      </ItemsControl.ItemTemplate>
+    </ItemsControl>
+
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="15">
+      <Button Classes="FeatureButton" Command="{Binding NewUser}">NUEVO USUARIO</Button>
+      <Button Classes="FeatureButton" Command="{Binding GoBack}">VOLVER</Button>
+    </StackPanel>
   </StackPanel>
 </UserControl>

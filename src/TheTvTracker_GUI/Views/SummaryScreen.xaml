@@ -4,37 +4,35 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="TheTvTracker.Views.SummaryScreen">
-  <ScrollViewer>
-    <StackPanel>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-      <TextBlock Classes="h1">Hola!</TextBlock>
-    </StackPanel>
-  </ScrollViewer>
+  <StackPanel>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+    <TextBlock Classes="h1">Hola!</TextBlock>
+  </StackPanel>
 </UserControl>

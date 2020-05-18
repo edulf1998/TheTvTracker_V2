@@ -3,6 +3,7 @@ using System;
 using System.Collections.ObjectModel;
 using TheTvTracker.Data.Access;
 using TheTvTracker.Data.Model;
+using TheTvTracker.Data.Repos;
 
 namespace TheTvTracker.ViewModels
 {
@@ -27,9 +28,8 @@ namespace TheTvTracker.ViewModels
 
     private void LoadUsers()
     {
-      var db = DbHandler.Instance.Db;
-      var users = db.GetCollection<User>("Users");
-      foreach (User u in users.FindAll())
+      var users = UserRepo.Instance.GetAll();
+      foreach (User u in users)
       {
         Users.Add(u);
       }

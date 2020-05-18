@@ -3,6 +3,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>TheTvTracker</RootNamespace>
+    <ApplicationIcon>TvIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Compile Update="**\*.xaml.cs">
@@ -12,21 +13,28 @@
       <SubType>Designer</SubType>
     </AvaloniaResource>
   </ItemGroup>
-  
+
   <!-- Assets files are included directly in the Assembly -->
   <ItemGroup>
     <AvaloniaResource Include="Assets\*" />
   </ItemGroup>
+
   <ItemGroup>
     <AvaloniaResource Include="Assets\Avatars\*" />
   </ItemGroup>
-  
+
   <ItemGroup>
+    <AvaloniaResource Include="Assets\AppIcons\*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Remove="Modals\UserModal.xaml" />
     <AvaloniaResource Remove="Views\LoginScreen.xaml" />
     <AvaloniaResource Remove="Views\SummaryScreen.xaml" />
     <AvaloniaResource Remove="Views\UserAdminScreen.xaml" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Modals\UserModal.xaml" />
     <None Remove="Views\LoginScreen.xaml" />
     <None Remove="Views\SummaryScreen.xaml" />
     <None Remove="Views\UserAdminScreen.xaml" />
@@ -49,6 +57,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\UserAdminScreen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Modals\UserModal.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
