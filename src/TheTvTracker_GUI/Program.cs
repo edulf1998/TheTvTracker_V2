@@ -3,6 +3,8 @@ using Avalonia.Logging.Serilog;
 using Avalonia.ReactiveUI;
 using ReactiveUI;
 using Splat;
+using TheTvTracker.Data.Model;
+using TheTvTracker.Data.Repos;
 using TheTvTracker.ViewModels;
 using TheTvTracker.Views;
 

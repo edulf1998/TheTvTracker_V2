@@ -22,8 +22,9 @@ namespace TheTvTracker
           DataContext = new MainWindowVM()
         };
       }
-
       base.OnFrameworkInitializationCompleted();
     }
+
+
   }
 }

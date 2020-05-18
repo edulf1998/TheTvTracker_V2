@@ -1,7 +1,9 @@
 ﻿using ReactiveUI;
 using System;
 using System.Collections.ObjectModel;
+using TheTvTracker.Data.Access;
 using TheTvTracker.Data.Model;
+using TheTvTracker.Data.Repos;
 
 namespace TheTvTracker.ViewModels
 {
@@ -26,17 +28,11 @@ namespace TheTvTracker.ViewModels
 
     private void LoadUsers()
     {
-      User u1 = new User() { Username = "Usuario1", Avatar = "avares://TheTvTracker_GUI/Assets/Avatars/Smiley.png" };
-      Users?.Add(u1);
-
-      User u2 = new User() { Username = "Usuario2", Avatar = "avares://TheTvTracker_GUI/Assets/Avatars/Sam.png" };
-      Users?.Add(u2);
-
-      User u3 = new User() { Username = "Usuario3", Avatar = "avares://TheTvTracker_GUI/Assets/Avatars/Lady.png" };
-      Users?.Add(u3);
-
-      User u4 = new User() { Username = "Usuario4", Avatar = "avares://TheTvTracker_GUI/Assets/Avatars/Robot.png" };
-      Users?.Add(u4);
+      var users = UserRepo.Instance.GetAll();
+      foreach (User u in users)
+      {
+        Users.Add(u);
+      }
     }
 
     private void UserLogin(User u)
