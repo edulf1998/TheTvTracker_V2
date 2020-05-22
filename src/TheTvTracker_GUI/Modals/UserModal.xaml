@@ -26,7 +26,7 @@
       <TextBlock Classes="h1">Editar Usuario</TextBlock>
       <TextBlock Classes="h2">(Máximo de 12 caracteres, no puede estar vacío)</TextBlock>
 
-      <ComboBox Items="{Binding Avatars}" SelectedItem="{Binding SelectedAvatar}" MaxWidth="150" MaxDropDownHeight="150">
+      <ComboBox Items="{Binding Avatars}" SelectedItem="{Binding SelectedAvatar}" MaxWidth="150" MaxDropDownHeight="250">
         <ComboBox.ItemTemplate>
           <DataTemplate>
             <Image Stretch="Uniform" Source="{Binding ., Converter={StaticResource ResourceKey=BMPConverter}}" Width="128"/>

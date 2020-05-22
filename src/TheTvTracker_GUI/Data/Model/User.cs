@@ -1,5 +1,7 @@
 ﻿using ReactiveUI;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace TheTvTracker.Data.Model
 {
@@ -33,11 +35,18 @@ namespace TheTvTracker.Data.Model
       set => this.RaiseAndSetIfChanged(ref _lastLogin, value);
     }
 
-    private Series _following;
-    public Series Following
+    private IList<Series> _series;
+    public IList<Series> Series
     {
-      get => _following;
-      set => this.RaiseAndSetIfChanged(ref _following, value);
+      get => _series;
+      set => this.RaiseAndSetIfChanged(ref _series, value);
+    }
+    
+    private IList<Movie> _movies;
+    public IList<Movie> Movies
+    {
+      get => _movies;
+      set => this.RaiseAndSetIfChanged(ref _movies, value);
     }
 
     private DateTime _created;
@@ -52,6 +61,12 @@ namespace TheTvTracker.Data.Model
     {
       get => _updated;
       set => this.RaiseAndSetIfChanged(ref _updated, value);
+    }
+
+    public User()
+    {
+      Series = new List<Series>();
+      Movies = new List<Movie>();
     }
   }
 }

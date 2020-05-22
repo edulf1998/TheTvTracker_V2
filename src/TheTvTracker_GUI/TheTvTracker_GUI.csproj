@@ -28,14 +28,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <AvaloniaResource Remove="Assets\AppIcons\NewIcon.png" />
     <AvaloniaResource Remove="Modals\UserModal.xaml" />
     <AvaloniaResource Remove="Views\LoginScreen.xaml" />
+    <AvaloniaResource Remove="Views\MovieSearchScreen.xaml" />
+    <AvaloniaResource Remove="Views\SingleMovieScreen.xaml" />
     <AvaloniaResource Remove="Views\SummaryScreen.xaml" />
     <AvaloniaResource Remove="Views\UserAdminScreen.xaml" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Modals\UserModal.xaml" />
     <None Remove="Views\LoginScreen.xaml" />
+    <None Remove="Views\MovieSearchScreen.xaml" />
+    <None Remove="Views\SingleMovieScreen.xaml" />
     <None Remove="Views\SummaryScreen.xaml" />
     <None Remove="Views\UserAdminScreen.xaml" />
   </ItemGroup>
@@ -43,7 +48,9 @@
     <PackageReference Include="Avalonia" Version="0.9.10" />
     <PackageReference Include="Avalonia.Desktop" Version="0.9.10" />
     <PackageReference Include="Avalonia.ReactiveUI" Version="0.9.10" />
-    <PackageReference Include="LiteDB" Version="5.0.7" />
+    <PackageReference Include="LiteDB" Version="5.0.8" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="RestSharp" Version="106.11.4" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\LoginScreen.xaml">
@@ -62,6 +69,16 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Modals\UserModal.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\MovieSearchScreen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\SingleMovieScreen.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>

@@ -1,11 +1,8 @@
 ﻿using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
-using DynamicData.Binding;
 using ReactiveUI;
 using System;
 using System.Collections.ObjectModel;
-using System.Reactive;
-using System.Reactive.Linq;
 using TheTvTracker.Data.Model;
 using TheTvTracker.Data.Repos;
 using TheTvTracker.Modals;

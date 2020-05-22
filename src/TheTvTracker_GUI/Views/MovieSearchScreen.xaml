@@ -1,0 +1,65 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="TheTvTracker.Views.MovieSearchScreen">
+  <StackPanel Orientation="Vertical" Spacing="25" VerticalAlignment="Center">
+    <TextBlock Classes="h1">Búsqueda de Películas</TextBlock>
+
+    <StackPanel Orientation="Horizontal" Spacing="5" HorizontalAlignment="Center">
+      <Button Width="75" Command="{Binding GoBack}">
+        <Image Stretch="Uniform" Height="18" Source="avares://TheTvTracker_GUI/Assets/AppIcons/ArrowPointLeft.png" />
+      </Button>
+      
+      <TextBox Text="{Binding QueryText}" FontSize="18" Watermark="Nombre de película" Width="520" MaxLength="50" />
+      <Button Command="{Binding Search}" Width="75">
+        <Image Stretch="Uniform" Height="18" Source="avares://TheTvTracker_GUI/Assets/AppIcons/Search.png" />
+      </Button>
+    </StackPanel>
+
+    <!-- IsVisible="{Binding !!SearchResults.Count}" -->
+    <!--<ListBox Height="525" Items="{Binding SearchResults}" MaxWidth="750" Background="Transparent" IsVisible="{Binding !!SearchResults.Count}">
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <Grid ColumnDefinitions="128, *, *, 128" MaxWidth="750" Margin="0, 0, 0, 15">
+            <Image Grid.Column="0" Stretch="Uniform" Height="87" Source="{Binding Poster, Converter={StaticResource ResourceKey=BMPConverter}}" HorizontalAlignment="Center" />
+            <TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" Classes="p" HorizontalAlignment="Center" />
+            <TextBlock Grid.Column="2" Text="{Binding Summary}" VerticalAlignment="Center" Classes="p" HorizontalAlignment="Center" />
+            <Button Grid.Column="3" VerticalAlignment="Center" Width="75" HorizontalAlignment="Center">
+              <Image Stretch="Uniform" Height="75" Source="avares://TheTvTracker_GUI/Assets/AppIcons/CirclePlus.png" />
+            </Button>
+          </Grid>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>-->
+
+    <ItemsControl Items="{Binding SearchResults}" IsVisible="{Binding !!SearchResults.Count}">
+      <ItemsControl.ItemsPanel>
+        <ItemsPanelTemplate>
+          <StackPanel MaxWidth="750"/>
+        </ItemsPanelTemplate>
+      </ItemsControl.ItemsPanel>
+
+      <ItemsControl.ItemTemplate>
+        <DataTemplate>
+          <Grid ColumnDefinitions="128, *, *, 128" MaxWidth="750" Margin="0, 0, 0, 15">
+            <Image Grid.Column="0" Stretch="Uniform" Height="87" Source="{Binding Poster, Converter={StaticResource ResourceKey=BMPConverter}}" HorizontalAlignment="Center" />
+
+            <Border Padding="5" Grid.Column="1">
+              <TextBlock Text="{Binding Name}" VerticalAlignment="Center" Classes="p" HorizontalAlignment="Center" />
+            </Border>
+
+            <Border Padding="5" Grid.Column="2">
+              <TextBlock Text="{Binding Summary}" VerticalAlignment="Center" Classes="p" HorizontalAlignment="Center" />
+            </Border>
+            
+            <Button Grid.Column="3" VerticalAlignment="Center" Width="75" HorizontalAlignment="Center" Command="{Binding $parent[UserControl].DataContext.AddMovie}" CommandParameter="{Binding .}">
+              <Image Stretch="Uniform" Height="75" Source="avares://TheTvTracker_GUI/Assets/AppIcons/CirclePlus.png" />
+            </Button>
+          </Grid>
+        </DataTemplate>
+      </ItemsControl.ItemTemplate>
+    </ItemsControl>
+  </StackPanel>
+</UserControl>
