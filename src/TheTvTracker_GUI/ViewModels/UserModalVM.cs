@@ -68,16 +68,19 @@ namespace TheTvTracker.ViewModels
 
     private void SaveChanges()
     {
-      U.Avatar = SelectedAvatar;
-      if (Editing)
+      if (!string.IsNullOrEmpty(U.Username))
       {
-        UserRepo.Instance.Update(U);
+        U.Avatar = SelectedAvatar;
+        if (Editing)
+        {
+          UserRepo.Instance.Update(U);
+        }
+        else
+        {
+          UserRepo.Instance.AddWithCheck(U);
+        }
+        Owner.Close();
       }
-      else
-      {
-        UserRepo.Instance.AddWithCheck(U);
-      }
-      Owner.Close();
     }
   }
 }

@@ -4,35 +4,34 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="TheTvTracker.Views.SummaryScreen">
-  <StackPanel>
-    <TextBlock Classes="h1">Hola!</TextBlock>
-    <TextBlock Classes="h1">Hola!</TextBlock>
-    <TextBlock Classes="h1">Hola!</TextBlock>
-    <TextBlock Classes="h1">Hola!</TextBlock>
-    <TextBlock Classes="h1">Hola!</TextBlock>
-    <TextBlock Classes="h1">Hola!</TextBlock>
-    <TextBlock Classes="h1">Hola!</TextBlock>
-    <TextBlock Classes="h1">Hola!</TextBlock>
-    <TextBlock Classes="h1">Hola!</TextBlock>
-    <TextBlock Classes="h1">Hola!</TextBlock>
-    <TextBlock Classes="h1">Hola!</TextBlock>
-    <TextBlock Classes="h1">Hola!</TextBlock>
-    <TextBlock Classes="h1">Hola!</TextBlock>
-    <TextBlock Classes="h1">Hola!</TextBlock>
-    <TextBlock Classes="h1">Hola!</TextBlock>
-    <TextBlock Classes="h1">Hola!</TextBlock>
-    <TextBlock Classes="h1">Hola!</TextBlock>
-    <TextBlock Classes="h1">Hola!</TextBlock>
-    <TextBlock Classes="h1">Hola!</TextBlock>
-    <TextBlock Classes="h1">Hola!</TextBlock>
-    <TextBlock Classes="h1">Hola!</TextBlock>
-    <TextBlock Classes="h1">Hola!</TextBlock>
-    <TextBlock Classes="h1">Hola!</TextBlock>
-    <TextBlock Classes="h1">Hola!</TextBlock>
-    <TextBlock Classes="h1">Hola!</TextBlock>
-    <TextBlock Classes="h1">Hola!</TextBlock>
-    <TextBlock Classes="h1">Hola!</TextBlock>
-    <TextBlock Classes="h1">Hola!</TextBlock>
-    <TextBlock Classes="h1">Hola!</TextBlock>
+  <StackPanel VerticalAlignment="Center" Spacing="15">
+    <TextBlock Classes="h1" Text="{Binding WelcomeText}" />
+    <TextBlock Classes="h2" Text="{Binding SummaryText}" />
+
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="5">
+      <TextBlock Classes="h3">Películas</TextBlock>
+      <Button Command="{Binding SearchMovies}">
+        <Image Stretch="Uniform" Height="24" Source="avares://TheTvTracker_GUI/Assets/AppIcons/Search.png" />
+      </Button>
+    </StackPanel>
+
+    <ItemsControl Items="{Binding U.Movies}" HorizontalAlignment="Center">
+      <ItemsControl.ItemsPanel>
+        <ItemsPanelTemplate>
+          <WrapPanel Orientation="Horizontal" />
+        </ItemsPanelTemplate>
+      </ItemsControl.ItemsPanel>
+
+      <ItemsControl.ItemTemplate>
+        <DataTemplate>
+          <Button Command="{Binding $parent[UserControl].DataContext.SeeMovie}" CommandParameter="{Binding .}" Background="Transparent" BorderBrush="Transparent">
+            <StackPanel Orientation="Vertical" Spacing="5" Margin="5" Width="256">
+              <Image Stretch="Uniform" Height="256" Source="{Binding Poster, Converter={StaticResource ResourceKey=BMPConverter}}"/>
+              <TextBlock Classes="p" Text="{Binding Name}" HorizontalAlignment="Center"/>
+            </StackPanel>
+          </Button>
+        </DataTemplate>
+      </ItemsControl.ItemTemplate>
+    </ItemsControl>
   </StackPanel>
 </UserControl>

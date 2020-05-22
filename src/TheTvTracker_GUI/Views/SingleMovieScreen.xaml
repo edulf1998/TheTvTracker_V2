@@ -1,0 +1,36 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="TheTvTracker.Views.SingleMovieScreen">
+
+  <UserControl.Styles>
+    <Style Selector="Button.FeatureButton">
+      <Setter Property="Width" Value="250" />
+      <Setter Property="Margin" Value="0, 25, 0, 0" />
+      <Setter Property="Padding" Value="5" />
+      <Setter Property="Foreground" Value="White" />
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="FontSize" Value="16" />
+    </Style>
+  </UserControl.Styles>
+
+  <StackPanel VerticalAlignment="Center" Spacing="25">
+    <TextBlock Classes="h1" Text="{Binding M.Name}" FontSize="24" />
+
+    <Grid MaxWidth="750" MaxHeight="1024" RowDefinitions="*,*,*" ColumnDefinitions="*, 256">
+      <Image Grid.Row="0" Grid.RowSpan="2" Stretch="Uniform" Width="300" Source="{Binding M.Poster, Converter={StaticResource ResourceKey=BMPConverter}}"/>
+
+      <ScrollViewer Grid.Row="0" Grid.Column="1"  Grid.RowSpan="2" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+        <TextBlock Text="{Binding M.Summary}" Classes="p" VerticalAlignment="Center" FontSize="18" />
+      </ScrollViewer>
+
+      <Button Grid.Row="2" Grid.Column="0" Command="{Binding RemoveMovie}">
+        <Image Stretch="Uniform" Source="avares://TheTvTracker_GUI/Assets/AppIcons/Trashcan.png" Width="32" />
+      </Button>
+    </Grid>
+
+    <Button Classes="FeatureButton" Command="{Binding GoBack}">Volver</Button>
+  </StackPanel>
+</UserControl>
